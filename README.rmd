@@ -14,7 +14,7 @@ Texevier::create_template_html(directory="", template_name = "")
 
 # Question 1 Solution 
 ## Load the data 
-```{r question1, include=FALSE}
+```{r question1}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse)
 
@@ -89,7 +89,7 @@ figure5
 The key things to get across here is that London is in fact cold and wet. I think the best way to express that it is wet is to calculate the frequency of days in which it rained vs days in which it didn't rain so that I can convince her that it rains a lot of the time. For the cold part of the equation some kind of temperature plot will be optimal. There is a lot of data so I think it will be best to restrict it to the most recent year and then plot the average temperatures for the year. Here it will be necessary to provide some sort of comparison, so I obtained the average annual temperature for South Africa (World Bank, 2022). I also provided a plot of the snow depth for some humour. 
 
 ## Read in data 
-```{r question_2, include=FALSE}
+```{r question_2}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse,huxtable)
 
@@ -133,7 +133,7 @@ graph2
 
 
 # Question 3 Solution 
-```{r question_3, include=FALSE}
+```{r question_3}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse)
 #Source code 
@@ -197,7 +197,7 @@ Lefties seem to be relatively good at tennis, making up 13% of the top tennis pl
 
 # Question 4 Solution
 
-```{r question_4, include=FALSE}
+```{r question_4}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse)
 
