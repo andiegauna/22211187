@@ -807,5 +807,5 @@ should also be considered although what is optimal is less clear.
 Further analysis is necessary before we commence the buying of titles.
 
     ##           used (Mb) gc trigger  (Mb) max used  (Mb)
-    ## Ncells 1453717 77.7    2721221 145.4  2721221 145.4
+    ## Ncells 1453717 77.7    2721218 145.4  2721218 145.4
     ## Vcells 2870236 21.9   42324883 323.0 52876963 403.5
