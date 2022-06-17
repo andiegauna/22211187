@@ -1,0 +1,95 @@
+---
+title: "Netflix"
+author: "Andrea Gauna"
+# date: "November 2021"
+date: "`r Sys.Date()`"
+bibliography: Tex/ref.bib       # Do not edit: Keep this naming convention and location.
+output:
+  pagedown::html_paged:
+    # template: wp_paged.html
+    # css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
+    css: ["Template/default-fonts-Texevier.css", "Template/default-page-Texevier.css", "Template/default-Texevier.css"]
+    csl: Template/harvard-stellenbosch-university.csl # referencing format used.
+    template: ["Template/paged-Texevier.html"]
+
+    toc: true
+    # change to true for a self-contained document, but it'll be a litte slower for Pandoc to render
+    self_contained: TRUE
+# abstract: |
+#     This is an abstract. Much can be written here. Uncomment this line to go without an abstract.
+#     Abstracts have no spaces, but can have bullets.
+# 
+#     Bullets can be created as follows
+# 
+#     + You can add bullets, but do not add colons please.
+# 
+#     + Line breaks are also not permitted.
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
+pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse)
+
+
+
+#Source code 
+list.files('code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+
+credits <- read_csv("~/OneDrive - Stellenbosch University/22211187/data/netflix/credits.csv")
+titles<- read_csv("~/OneDrive - Stellenbosch University/22211187/data/netflix/titles.csv")
+```
+
+\newpage
+
+# Introduction {-}
+
+
+# Most popular shows and movies {-}
+A good place to start in explaining what works and what doesnt work for a streaming platform is to look at what shows and movies do well on the platform. The metric for performance that is going to be used here is the TMDB popularity as it aggregates important metrics likes the number of votes and views for a movie or show. The top 10 movies and shows are shown in the tables below. The movie table provides valuable insights into possible explanations for movies performance, it seems as though longer movies may perform a bit better, romances and thrillers seem to be popular, and the TMDb score seems to be relatively important although that is expected given that it is an input into popularity. 
+For series, the most popular titles appear to have slightly above the average run time for series of 40 minutes. Drama appears to be the most popular primary genre among top series. 
+
+## Table 1: Top 10 most popular movies {-}
+```{r}
+
+table1<-movie_table(titles)
+table1
+
+
+```
+
+## Table 2: Top 10 most popular series {-}
+```{r}
+table2<-series_table(titles)
+table2
+```
+
+Now that we understand some of the broad factors that feed into a series being popular. It is necessary to conduct a more granular analysis, delving into specific factors. 
+
+# Most popular genres{-}
+Peoples preferences for entertainment are often influenced by the preferences for a particular genre of content. Understanding which genres are most popular would be helpful in determining which content to prioritise on the streaming platform. The graph below shows the 10 most popular genres by median TMDb popularity. Median was chosen to minimize the effects outliers have on results. It is clear from the graph that animation, crime and sport are the most popular genres and thus these should be prioritized when creating a new streaming platform. 
+
+## Figure 1: Genres {-}
+```{r}
+plot1<-genreplot(titles)
+plot1
+```
+
+
+# Correlations {-}
+Correlations between the various variables can help us undertand what matters for a shows popularity. The correlation plot below clearly illustrates that there is a strong positive correlation between the IMDb score and the TMDb score, as well as a relatively strong negative correlation between the TMDb score and the runtime. This suggests that shows with a shorter run time might score better overall. Ideally though, this should be plotted separately for movies and series as these have significantly different run times and combining them in one plot might confuse the relationship between run time and the other variables. 
+
+## Figure 2: Correlations {-}
+```{r}
+plot2<-correlations(titles)
+plot2
+```
+
+# Conclusion {-}
+What is clear from the above analysis is that the company must carefully consider genres as well as a title's IMDb and TMDb ratings when deciding to load titles onto the streaming platform. Variables like run time should also be considered although what is optimal is less clear. Further analysis is necessary before we commence the buying of titles. 
+
+
+
+
+
+

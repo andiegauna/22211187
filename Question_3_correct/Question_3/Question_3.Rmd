@@ -1,0 +1,85 @@
+---
+title: "Question 3"
+author: "Andrea Gauna"
+# date: "November 2021"
+date: "`r Sys.Date()`"
+bibliography: Tex/ref.bib       # Do not edit: Keep this naming convention and location.
+output:
+  pagedown::html_paged:
+    # template: wp_paged.html
+    # css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
+    css: ["Template/default-fonts-Texevier.css", "Template/default-page-Texevier.css", "Template/default-Texevier.css"]
+    csl: Template/harvard-stellenbosch-university.csl # referencing format used.
+    template: ["Template/paged-Texevier.html"]
+
+    toc: true
+    # change to true for a self-contained document, but it'll be a litte slower for Pandoc to render
+    self_contained: TRUE
+# abstract: |
+#     This is an abstract. Much can be written here. Uncomment this line to go without an abstract.
+#     Abstracts have no spaces, but can have bullets.
+# 
+#     Bullets can be created as follows
+# 
+#     + You can add bullets, but do not add colons please.
+# 
+#     + Line breaks are also not permitted.
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
+pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse)
+#Source code 
+list.files('code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+
+#Read in Data - executing this breaks my PC so I just plug the inputs into the function directly and it doesnt crash
+# playersandrankings<-  readplayerranking(rankingspath="C:/Users/andie/OneDrive - Stellenbosch University/22211187/data/Tennis", playerpath = "C:/Users/andie/OneDrive - Stellenbosch University/22211187/data/Tennis/atp_players.csv")
+```
+
+\newpage
+
+# Top players by points {-} 
+
+In terms of points, none of the top players are particularly familiar. Neither Djokovic or Nadal appear among the top 10 players as is seen in Table 1 below. 
+
+## Table 1: Top 10 tennis players of all time by points 
+```{r}
+figure1<-topplayers(playersandrankings)
+figure1
+
+```
+
+
+# Top players by rank {-} 
+
+The top players in terms of rank are more familiar. Unfortunately my favorite Nadal does only come in at 10th, far behind Djokavic who holds the first position. 
+
+## Table 2: Top 10 tennis players of all time by ranking 
+```{r}
+figure2<-topplayersrank(playersandrankings)
+figure2
+
+```
+
+# Do you have to be tall to be a good tennis player? 
+
+## Figure 1: The height and rank of top tennies players 
+
+Although the scatter plot below illustrates that there is limited correlation between a players height and their ranking. All the top players appear to taller than 170cm. The average South African male is 169cm and thus, the average South African man is definitely not going to be a pro tennis player. 
+```{r}
+figure3<-heightplot(playersandrankings)
+figure3
+
+```
+
+
+# Do lefties play tennis? 
+
+Lefties seem to be relatively good at tennis, making up 13% of the top tennis players but only 10% of the population. 
+
+```{r}
+figure4<-handplot(playersandrankings)
+figure4
+
+```

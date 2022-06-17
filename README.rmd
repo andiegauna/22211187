@@ -4,13 +4,29 @@ output:
     variant: markdown_github
 ---
 
-# Purpose
+# Introduction 
+This document is the README for my Data Science 871 Practical. My approach to the various questions will be detailed here although the code for the questions and the related files will be contained in the question folders (e.g. Question_1). 
 
-Purpose of this work folder.
+# Question 1 {-} 
+The first step in this situation is to create the Texevier template so that the explanations and code can be handled in a well organised manner. 
+```{r}
+Texevier::create_template_html(director="C:/Users/andie/OneDrive - Stellenbosch University/22211187/Question_1", template_name="Question_1",build_project = T, open_project = T )
+```
 
-Ideally store a minimum working example data set in data folder.
+There is alot of missing data and the data is super confusing, so the first thing I did was to look at the unique values in each column to try figure out what was going on.  It seems like the location column contains continents as well as individual countries and income designations. Considering that out first task was to try to compare Africa to the other countries, I thought it was a good idea to extract the continent information from the location column, but the entries with a continent in the location column had no data for the other columns, making this appraoch futile. I really wanted to get a measure of total cases per million per continent to show the comparison. Thus I needed to instead get the location column to a country column and then average the values over all the countries in a particular continent. This is what I did in the function "barplotcases". 
 
-Add binary files in bin, and closed R functions in code. Human Readable settings files (e.g. csv) should be placed in settings/
+
+# Question 2 {-}
+The key things to get across here is that London is in fact cold and wet. I think the best way to express that it is wet is to calculate the frequency of days in which it rained vs days in which it didn't rain so that I can convince her that it rains a lot of the time. For the cold part of the equation some kind of temperature plot will be optimal. There is a lot of data so I think it will be best to restrict it to the most recent year and then plot the average temperatures for the year. Here it will be necessary to provide some sort of comparison, so I obtained the average annual temperature for South Africa (World Bank, 2022). I also provided a plot of the snow depth for some humour. 
+
+
+# Question 3
+This dataset kept crashing my computer everytime I tried to run the function so I had a lot of trouble getting it to work. I think I'm just gonna do some basic plots to show best player of all time etc. 
+
+
+
+# Question 4 {-}
+
 
 
 ```{r}

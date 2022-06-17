@@ -1,0 +1,107 @@
+---
+title: "Question 1"
+author: "Andrea Gauna"
+# date: "November 2021"
+date: "`r Sys.Date()`"
+bibliography: Tex/ref.bib       # Do not edit: Keep this naming convention and location.
+output:
+  pagedown::html_paged:
+    # template: wp_paged.html
+    # css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
+    css: ["Template/default-fonts-Texevier.css", "Template/default-page-Texevier.css", "Template/default-Texevier.css"]
+    csl: Template/harvard-stellenbosch-university.csl # referencing format used.
+    template: ["Template/paged-Texevier.html"]
+
+    toc: true
+    # change to true for a self-contained document, but it'll be a litte slower for Pandoc to render
+    self_contained: TRUE
+# abstract: |
+#     This is an abstract. Much can be written here. Uncomment this line to go without an abstract.
+#     Abstracts have no spaces, but can have bullets.
+# 
+#     Bullets can be created as follows
+# 
+#     + You can add bullets, but do not add colons please.
+# 
+#     + Line breaks are also not permitted.
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
+pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse)
+
+#Source code 
+list.files('code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+
+#Load data sets
+owidcoviddata<- read_csv("~/OneDrive - Stellenbosch University/22211187/data/Covid/owid-covid-data.csv")
+deathbycause<- read_csv("~/OneDrive - Stellenbosch University/22211187/data/Covid/Deaths_by_cause.csv")
+codebookcoviddata <- read_csv("~/OneDrive - Stellenbosch University/22211187/data/Covid/covid_data_description.csv")
+
+```
+
+\newpage
+
+# Africa's experience {-}
+
+One might assume that Africa would be hardest hit by the Covid-19 pandemic given the high levels of poverty and inequality present in many of the countries in the region. To investigate this, one can look at a number of metrics. The left pane of the figure below shows the average total number of cases experienced by a continent, the average excludes those countries for which no data on total cases was available. One can see that this appears to show a suprising story, that Africa experienced the least Covid-19 cases per million inhabitants out of all the continents. This is not surprising though when you delve a little deeper. Consider the right pane, it shows that Africa also has the lowest average total tests per thousand inhabitants. This indicates that the reason Africa's Covid-19 numbers are so low might not be due to a lack of actual cases, but rather a failure to adequately test for the virus. 
+
+## Figure 1: Africa has had the fewest cases but also the fewest tests {-}
+```{r}
+figure1<-barplotcombined(owidcoviddata)
+figure1
+```
+
+Another stark illustration of some of the problems Africa has experienced in collecting data on the pandemic is the case of Tanzania. This is not a case of a lack of resources, like it is for testing, but rather, a lack of leadership. The president declared the pandemic to be over early in 2020 and thereafter stopped recording cases, this is why we see the total cases for Tanzania remaining close to zero for much of 2020 and 2021. It was only when the new president came into power that cases began to be recorded again, hence the jump in late 2021. 
+
+## Figure 2: Covid cases in Tanzania {-}
+```{r}
+figure2<-tanzaniacases(owidcoviddata)
+figure2
+```
+
+Both these figures illustrate a need for caution in making blanket statements about how certain countries or regions fared during Covid-19. Without adequate understanding of the limitations of the dataset provided, one might certainly be inclined to conclude that Africa got off relatively lightly with regard to Covid-19 or that Tanzania had barely any Covid cases for the first two years of the pandemic. This could be an interesting topic to discuss, with more examples of where data might be confusing to readers at face value. 
+
+# Poverty and the pandemic {-}
+
+This failure of the data to capture the true impacts of the pandemic extends beyond just Africa. Testing has tended to be more limited in lower income countries as well. From this data set we can obtain average case numbers and deaths per income level, these are displayed in the figure below. It once again shows the counter-intuitive conclusion that lower income countries experienced lower case levels and lower deaths. Although it is plausible that the lower rates of travel in lower income countries might have suppressed cases initially, it is unlikely that this effect would've remained throughout the pandemic. Thus, the graphs below illustrate the problems with data collection from resource light nations. 
+
+## Figure 3: Lower income countries report the least cases but also the least tests {-}
+```{r}
+figure3<-poverty_plot(owidcoviddata)
+figure3
+```
+
+
+# Life expectancy {-}
+There is clearly a positive relationship between average life expectancy and total cases. This could be due to correlations with levels of development and accordingly resources available for testing, or due to the abundance of elderly people who were more at risk of Covid-19. 
+ 
+## Figure 4: Life expectancy and total cases {-}
+```{r}
+figure4<-lifeexpectancy(owidcoviddata)
+figure4
+```
+
+
+# Covid response {-}
+One can see from this figure that limited data is available on hospitalizations and ICU admissions across regions. For those regions for which data is available, it can be seen that Asia and South America appear not to vary their hospital beds per thousand vary much, Europe does appear to pick up hospital beds following the first wave but there is relatively little movement after that. 
+
+## Figure 5: ICU admissions per million and hospital beds per thousand for regions with data {-}
+```{r}
+figure5<- covidresponse(owidcoviddata)
+figure5
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
