@@ -27,7 +27,7 @@ This dataset kept crashing my computer everytime I tried to run the function so 
 
 # Question 4 {-}
 
-
+Tried to look at which did best in popularity to get an idea of what they should put on their streaming platform.
 
 ```{r}
 
