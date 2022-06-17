@@ -13,7 +13,7 @@ Texevier::create_template_html(directory="", template_name = "")
 ```
 
 # Question 1 Solution 
-## Load the data 
+## Introduction 
 ```{r question1, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse)
@@ -62,7 +62,7 @@ figure3
 
 
 ## Life expectancy {-}
-There is clearly a positive relationship between average life expectancy and total cases. This could be due to correlations with levels of development and accordingly resources available for testing, or due to the abundance of elderly people who were more at risk of Covid-19. 
+There is clearly a positive relationship between average life expectancy and total cases. This could be due to correlations with levels of development and accordingly resources available for testing, or due to the abundance of elderly people who were more at risk for Covid-19. 
  
 ### Figure 4: Life expectancy and total cases {-}
 ```{r}
@@ -72,7 +72,7 @@ figure4
 
 
 ## Covid response {-}
-One can see from this figure that limited data is available on hospitalizations and ICU admissions across regions. For those regions for which data is available, it can be seen that Asia and South America appear not to vary their hospital beds per thousand vary much, Europe does appear to pick up hospital beds following the first wave but there is relatively little movement after that. 
+One can see from this figure that limited data is available on hospitalizations and ICU admissions across regions. For those regions for which data is available, it can be seen that Asia and South America appear not to vary their hospital beds per thousand very much, Europe does appear to increase the number of hospital beds following the first wave but there is relatively little movement after that. 
 
 ### Figure 5: ICU admissions per million and hospital beds per thousand for regions with data {-}
 ```{r}
@@ -88,7 +88,6 @@ figure5
 
 The key things to get across here is that London is in fact cold and wet. I think the best way to express that it is wet is to calculate the frequency of days in which it rained vs days in which it didn't rain so that I can convince her that it rains a lot of the time. For the cold part of the equation some kind of temperature plot will be optimal. There is a lot of data so I think it will be best to restrict it to the most recent year and then plot the average temperatures for the year. Here it will be necessary to provide some sort of comparison, so I obtained the average annual temperature for South Africa (World Bank, 2022). I also provided a plot of the snow depth for some humour. 
 
-## Read in data 
 ```{r question_2, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 pacman::p_load(modelsummary, gt, knitr, kableExtra, tidyverse,huxtable)
@@ -103,7 +102,7 @@ london_weather <- read_csv("~/OneDrive - Stellenbosch University/22211187/data/L
 
 
 ## Do you really like wet socks? {-}
-There are so many reasons not to move to London but in this document I will name but a few. London is cold, London in rainy and third, there is a zero percent change of running into me. It rains nearly 50% of the time! The amount of rain in London  basically guarantees you'll be stomping in puddles and going to work with wet socks. Do you really like wet socks? 
+There are so many reasons not to move to London but in this document I will name but a few. London is cold, London in rainy and third, there is a zero percent chance of running into me. Table 1 shows that it rains nearly 50% of the time! The amount of rain in London  basically guarantees you'll be stomping in puddles and going to work with wet socks. Do you really like wet socks? 
 
 ### Table 1: The frequency of rainy days in London  {-}
 ```{r}
@@ -115,7 +114,7 @@ f
 
 Not only is London super wet. It is also super cold. Where the average annual temperature in London is a chilly 12.7 degrees, in sunny South Africa it is 17.5 degrees. From the graph below it is clear than many days are spent below the average in London.
 
-### Figure 1: The average tempreture in London in 2020 {-}
+### Figure 1: The average temperature in London in 2020 {-}
 
 ```{r}
 graph1<-tempretureplot(london_weather)
@@ -144,7 +143,7 @@ list.files('~/OneDrive - Stellenbosch University/22211187/Question_3_correct/Que
 ```
 
 ## Introduction {-}
-This dataset repeatedly crashed my computer so I was unable to read the data in using my function. I had to instead run all the elements of my function manually so that I could complete the rest of the analysis. As such. The figures that I created won't display properly through code here, but you can go and run them as individual functions or check their code in the Question_3_correct folder. I will include screenshots of the output here. 
+This dataset repeatedly crashed my computer so I was unable to read the data in using my function. I had to instead run all the elements of my function manually so that I could complete the rest of the analysis. As such, the figures that I created won't display properly through code here, but you can go and run them as individual functions or check their code in the Question_3_correct folder. I will include screenshots of the output here. 
 
 ## Top players by points {-} 
 
@@ -172,7 +171,7 @@ The top players in terms of rank are more familiar. Unfortunately my favorite Na
 ```
 
 ## Do you have to be tall to be a good tennis player? 
-Although the scatter plot below illustrates that there is limited correlation between a players height and their ranking. All the top players appear to taller than 170cm. The average South African male is 169cm and thus, the average South African man is definitely not going to be a pro tennis player. 
+Although the scatter plot below illustrates that there is limited correlation between a players height and their ranking, all the top players appear to taller than 170cm. The average South African male is 169cm and thus, the average South African man is definitely not going to be a pro tennis player. 
 
 ### Figure 1: The height and rank of top tennies players 
 ![](pictures/heightplot.png)
@@ -186,7 +185,7 @@ Although the scatter plot below illustrates that there is limited correlation be
 
 ## Do lefties play tennis? 
 
-Lefties seem to be relatively good at tennis, making up 13% of the top tennis players but only 10% of the population. 
+Lefties seem to be relatively good at tennis, making up 15% of the top tennis players but only 10% of the population. 
 ![](pictures/handplot.png)
 ```{r}
 # figure9<-handplot(playersandrankings)
@@ -209,13 +208,13 @@ list.files('~/OneDrive - Stellenbosch University/22211187/Question_4/code', full
 credits <- read_csv("~/OneDrive - Stellenbosch University/22211187/data/netflix/credits.csv")
 titles<- read_csv("~/OneDrive - Stellenbosch University/22211187/data/netflix/titles.csv")
 ```
-# Introduction {-}
 
-# Most popular shows and movies {-}
-A good place to start in explaining what works and what doesn't work for a streaming platform is to look at what shows and movies do well on the platform. The metric for performance that is going to be used here is the TMDB popularity as it aggregates important metrics likes the number of votes and views for a movie or show. The top 10 movies and shows are shown in the tables below. The movie table provides valuable insights into possible explanations for movies performance, it seems as though longer movies may perform a bit better, romances and thrillers seem to be popular, and the TMDb score seems to be relatively important although that is expected given that it is an input into popularity. 
+
+## Most popular shows and movies {-}
+A good place to start in explaining what works and what doesn't work for a streaming platform is to look at what shows and movies do well on the platform. The metric for performance that is going to be used here is the TMDB popularity as it aggregates important metrics likes the number of votes and views for a movie or show. The top 10 movies and shows are shown in the tables below. The movie table provides valuable insights into possible explanations for a movies' performance, it seems as though longer movies may perform a bit better, romances and thrillers seem to be popular, and the TMDb score seems to be relatively important although that is expected given that it is an input into popularity. 
 For series, the most popular titles appear to have slightly above the average run time for series of 40 minutes. Drama appears to be the most popular primary genre among top series. 
 
-## Table 1: Top 10 most popular movies {-}
+### Table 1: Top 10 most popular movies {-}
 ```{r}
 
 table1<-movie_table(titles)
@@ -224,34 +223,34 @@ table1
 
 ```
 
-## Table 2: Top 10 most popular series {-}
+### Table 2: Top 10 most popular series {-}
 ```{r}
 table2<-series_table(titles)
 table2
 ```
 
-Now that we understand some of the broad factors that feed into a series being popular. It is necessary to conduct a more granular analysis, delving into specific factors. 
+Now that we understand some of the broad factors that feed into a show being popular. It is necessary to conduct a more granular analysis, delving into specific factors. 
 
-# Most popular genres{-}
-Peoples preferences for entertainment are often influenced by the preferences for a particular genre of content. Understanding which genres are most popular would be helpful in determining which content to prioritise on the streaming platform. The graph below shows the 10 most popular genres by median TMDb popularity. Median was chosen to minimize the effects outliers have on results. It is clear from the graph that animation, crime and sport are the most popular genres and thus these should be prioritized when creating a new streaming platform. 
+## Most popular genres{-}
+Peoples preferences for entertainment are often influenced by their preferences for a particular genre of content. Understanding which genres are most popular would be helpful in determining which content to prioritise on the streaming platform. The graph below shows the 10 most popular genres by median TMDb popularity. Median was chosen to minimize the effects outliers have on results. It is clear from the graph that animation, crime and sport are the most popular genres and thus these should be prioritized when creating a new streaming platform. 
 
-## Figure 1: Genres {-}
+### Figure 1: Genres {-}
 ```{r}
 plot1<-genreplot(titles)
 plot1
 ```
 
 
-# Correlations {-}
-Correlations between the various variables can help us undertand what matters for a shows popularity. The correlation plot below clearly illustrates that there is a strong positive correlation between the IMDb score and the TMDb score, as well as a relatively strong negative correlation between the TMDb score and the runtime. This suggests that shows with a shorter run time might score better overall. Ideally though, this should be plotted separately for movies and series as these have significantly different run times and combining them in one plot might confuse the relationship between run time and the other variables. 
+## Correlations {-}
+Correlations between the various variables can help us understand what matters for a shows' popularity. The correlation plot below clearly illustrates that there is a strong positive correlation between the IMDb score and the TMDb score, as well as a relatively strong negative correlation between the TMDb score and the runtime. This suggests that shows with a shorter run time might score better overall. Ideally though, this should be plotted separately for movies and series as these have significantly different run times and combining them in one plot might confuse the relationship between run time and the other variables. 
 
-## Figure 2: Correlations {-}
+### Figure 2: Correlations {-}
 ```{r}
 plot2<-correlations(titles)
 plot2
 ```
 
-# Conclusion {-}
+## Conclusion {-}
 What is clear from the above analysis is that the company must carefully consider genres as well as a title's IMDb and TMDb ratings when deciding to load titles onto the streaming platform. Variables like run time should also be considered although what is optimal is less clear. Further analysis is necessary before we commence the buying of titles. 
 
 ```{r}
