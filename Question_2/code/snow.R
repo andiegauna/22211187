@@ -8,8 +8,8 @@ g<- maxsnow %>% ggplot() + geom_bar(aes(y=snow_depth),  color="blue") +
     theme_classic() +
     labs(x = "",
          y = "Snow Depth",
-         title="The maximum snow depth in London is taller than a cat")
-img<- readJPEG("cat.jpg", native =T)
+         title="The maximum snow depth in London is taller than a small cat")
+img<- readJPEG("pictures/cat.jpg", native =T)
 
 img_graph <- g +
     inset_element(p = img,

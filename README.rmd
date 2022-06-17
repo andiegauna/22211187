@@ -103,12 +103,13 @@ london_weather <- read_csv("~/OneDrive - Stellenbosch University/22211187/data/L
 
 
 ## Do you really like wet socks? {-}
-There are so many reasons not to move to London but in this document I will name but a few. London is cold, London in rainy and third, there is a zero percent change of running into me. It rains nearly 50% of the time! The amount of rain in London  basically guarantees you'll be stomping in puddles and going to work with wet socks. Do you really like wet socks? (Note: I kept receiving the error: Error in dir.exists(lib.loc) : invalid filename argument and i couldn't fix it in time so I just screengrabbed the tables so I could knit my markdown, the code for the table is in "frequencytable.R").
+There are so many reasons not to move to London but in this document I will name but a few. London is cold, London in rainy and third, there is a zero percent change of running into me. It rains nearly 50% of the time! The amount of rain in London  basically guarantees you'll be stomping in puddles and going to work with wet socks. Do you really like wet socks? 
 
 ### Table 1: The frequency of rainy days in London  {-}
-
-![](pictures/frequencytable.png)
-
+```{r}
+f<- frequencytable(london_weather)
+f
+```
 
 ## Wet and cold? No thank you {-}
 
@@ -122,7 +123,7 @@ graph1
 ```
 
 ## There's a lot of snow in London {-}
-The maximum snow depth in London is taller than a small cat, this is an illustration of what that might look like. 
+The maximum snow depth in London is deeper than a kitten, this is an illustration of what a kitten stuck in that snow might look like, doesn't that make you sad? 
 
 ```{r}
 graph2<-maxsnowdepthplot(london_weather)
@@ -194,7 +195,7 @@ Lefties seem to be relatively good at tennis, making up 13% of the top tennis pl
 ```
 
 
-# Question 4 
+# Question 4 Solution
 
 ```{r question_4, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)

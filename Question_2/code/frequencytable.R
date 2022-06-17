@@ -4,11 +4,11 @@ frequencytable<-function(data, Latex=TRUE){
     library(xtable)
     library(Texevier)
     library(knitr)
-    diditrain<- data %>% mutate(rainyday=case_when(precipitation>0 ~'Rainy',
+    diditrain<- london_weather %>% mutate(rainyday=case_when(precipitation>0 ~'Rainy',
                                                  precipitation==0 ~'No Rain')) %>%
-        group_by(rainyday) %>% count('rainyday') %>% drop_na(rainyday) %>%
-        dplyr::rename(Frequency=freq, Weather=rainyday) %>%
-        mutate(Percentage=round((Frequency/sum(Frequency))*100),0)
+        group_by(rainyday) %>% count(rainyday) %>% drop_na(rainyday) %>%
+        rename(Frequency='n', Weather='rainyday') %>%
+        mutate(Percentage=Frequency/sum(Frequency)*100)
 
 
     Tab <- xtable(diditrain, caption = "Source:Weather \\label{tab1}")

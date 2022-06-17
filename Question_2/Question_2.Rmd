@@ -51,7 +51,10 @@ It rains nearly 50% of the time! The amount of rain in London  basically guarant
 
 ## Table 1: The frequency of rainy days in London  {-}
 
-![](frequencytable.png)
+```{r}
+f<- frequencytable(london_weather)
+f
+```
 
 
 # Wet and cold? No thank you {-}

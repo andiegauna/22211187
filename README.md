@@ -139,14 +139,49 @@ will name but a few. London is cold, London in rainy and third, there is
 a zero percent change of running into me. It rains nearly 50% of the
 time! The amount of rain in London basically guarantees you’ll be
 stomping in puddles and going to work with wet socks. Do you really like
-wet socks? (Note: I kept receiving the error: Error in
-dir.exists(lib.loc) : invalid filename argument and i couldn’t fix it in
-time so I just screengrabbed the tables so I could knit my markdown, the
-code for the table is in “frequencytable.R”).
+wet socks?
 
 ### Table 1: The frequency of rainy days in London
 
-![](pictures/frequencytable.png)
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Weather
+</th>
+<th style="text-align:right;">
+Frequency
+</th>
+<th style="text-align:right;">
+Percentage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+No Rain
+</td>
+<td style="text-align:right;">
+7963
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rainy
+</td>
+<td style="text-align:right;">
+7372
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Wet and cold? No thank you
 
@@ -157,14 +192,15 @@ days are spent below the average in London.
 
 ### Figure 1: The average tempreture in London in 2020
 
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 ## There’s a lot of snow in London
 
-The maximum snow depth in London is taller than a small cat, this is an
-illustration of what that might look like.
+The maximum snow depth in London is deeper than a kitten, this is an
+illustration of what a kitten stuck in that snow might look like,
+doesn’t that make you sad?
 
-![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 # Question 3 Solution
 
@@ -216,7 +252,7 @@ Lefties seem to be relatively good at tennis, making up 13% of the top
 tennis players but only 10% of the population.
 ![](pictures/handplot.png)
 
-# Question 4
+# Question 4 Solution
 
 # Introduction
 
@@ -744,7 +780,7 @@ should be prioritized when creating a new streaming platform.
 
 ## Figure 1: Genres
 
-![](README_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 # Correlations
 
@@ -760,7 +796,7 @@ might confuse the relationship between run time and the other variables.
 
 ## Figure 2: Correlations
 
-![](README_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
 # Conclusion
 
@@ -771,5 +807,5 @@ should also be considered although what is optimal is less clear.
 Further analysis is necessary before we commence the buying of titles.
 
     ##           used (Mb) gc trigger  (Mb) max used  (Mb)
-    ## Ncells 1451373 77.6    2652120 141.7  2652120 141.7
-    ## Vcells 2864822 21.9   42325435 323.0 52898151 403.6
+    ## Ncells 1453717 77.7    2721221 145.4  2721221 145.4
+    ## Vcells 2870236 21.9   42324883 323.0 52876963 403.5
